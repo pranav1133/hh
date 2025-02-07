@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Rose Day 💖</title>
+    <style>
+        body {
+            text-align: center;
+            background: #ffdde1;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Heading Animation */
+        h1 {
+            font-size: 3em;
+            color: #ff4081;
+            margin-top: 50px;
+            animation: heartbeat 1.5s infinite alternate, fadeIn 2s ease-in-out;
+        }
+
+        /* Heartbeat Effect */
+        @keyframes heartbeat {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        /* Glow Effect */
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #ff4081; }
+            to { text-shadow: 0 0 20px #ff79a1; }
+        }
+
+        /* Paragraph Fade-in Effect */
+        p {
+            font-size: 1.5em;
+            color: #d63384;
+            font-weight: bold;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        /* Hindi Love Lines Fade-in Effect */
+        .hindi-lines {
+            font-size: 1.3em;
+            color: #b00050;
+            margin-top: 20px;
+            font-weight: bold;
+            font-family: 'Segoe UI', sans-serif;
+            opacity: 0;
+            animation: fadeIn 3s ease-in-out 1.5s forwards;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Rose Falling Effect */
+        .rose {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Rosa_Red_Chateau01.jpg/640px-Rosa_Red_Chateau01.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation: float 2s ease-in-out infinite alternate, fall linear infinite;
+        }
+
+        /* Floating Effect Before Falling */
+        @keyframes float {
+            from { transform: translateY(-10px) rotate(0deg); }
+            to { transform: translateY(10px) rotate(10deg); }
+        }
+
+        /* Falling Effect */
+        @keyframes fall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Hover Glow Effect */
+        h1:hover, p:hover, .hindi-lines:hover {
+            color: #ff004f;
+            text-shadow: 0 0 20px #ff4081;
+            transition: 0.5s ease-in-out;
+        }
+    </style>
+
+    <script>
+        function createRose() {
+            let rose = document.createElement("div");
+            rose.classList.add("rose");
+            rose.style.left = Math.random() * window.innerWidth + "px";
+            rose.style.animationDuration = (Math.random() * 3 + 3) + "s";
+            rose.style.width = Math.random() * 30 + 40 + "px"; // Varying sizes
+            rose.style.height = rose.style.width; // Maintain aspect ratio
+            document.body.appendChild(rose);
+            setTimeout(() => rose.remove(), 5000);
+        }
+        setInterval(createRose, 500);
+    </script>
+</head>
+<body>
+    <h1>🌹 Happy Rose Day, My Love! 🌹</h1>
+    <p>You're the most beautiful flower in my garden of life! ❤️</p>
+    
+    <div class="hindi-lines">
+        💖 गुलाब की खूशबू जैसी है तुम्हारी यादें,<br>
+        हर लम्हा दिल को महका देती हैं! 💖<br><br>
+
+        🌹 हर फूल की खुशबू में बसी हो तुम,<br>
+        मेरी हर खुशी की वजह हो तुम! 🌹<br><br>
+
+        ❤️ तुम मेरे दिल की वो धड़कन हो,<br>
+        जो हर साँस के साथ बस बढ़ती जाती है! ❤️
+    </div>
+</body>
+</html>
