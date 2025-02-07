@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Rose Day 💖</title>
+    <style>
+        body {
+            text-align: center;
+            background: #ffdde1;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 3em;
+            color: #ff4081;
+            margin-top: 50px;
+            animation: glow 2s infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #ff4081; }
+            to { text-shadow: 0 0 20px #ff79a1; }
+        }
+        .rose {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: url('https://i.imgur.com/3tIdlfn.png') no-repeat center/contain;
+            animation: fall 5s linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100px) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+    </style>
+    <script>
+        function createRose() {
+            let rose = document.createElement("div");
+            rose.classList.add("rose");
+            rose.style.left = Math.random() * window.innerWidth + "px";
+            rose.style.animationDuration = (Math.random() * 3 + 3) + "s";
+            document.body.appendChild(rose);
+            setTimeout(() => rose.remove(), 5000);
+        }
+        setInterval(createRose, 500);
+    </script>
+</head>
+<body>
+    <h1>🌹 Happy Rose Day, My Love! 🌹</h1>
+    <p>You're the most beautiful flower in my garden of life! ❤️</p>
+</body>
+</html>
