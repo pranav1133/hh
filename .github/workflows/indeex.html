@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Promise Day ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            display: none;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .active {
+            display: flex;
+        }
+        .heart {
+            font-size: 80px;
+            animation: heartbeat 1s infinite alternate;
+            color: red;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); color: red; }
+            100% { transform: scale(1.3); color: pink; }
+        }
+        .glow-text {
+            font-size: 24px;
+            font-weight: bold;
+            animation: glow 1s infinite alternate;
+        }
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px red; }
+            100% { text-shadow: 0 0 20px pink; }
+        }
+        .promise {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background: red;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page 1: Welcome Screen -->
+    <div class="container active" id="page1">
+        <div class="heart">❤️</div>
+        <h1 class="glow-text">Happy Promise Day</h1>
+        <button class="button" onclick="nextPage(2)">Next ➡</button>
+    </div>
+
+    <!-- Page 2: Marathi Promise Messages -->
+    <div class="container" id="page2">
+        <h2 class="glow-text">💖 वचन तुझ्यासाठी 💖</h2>
+        <p class="promise">मी तुला आयुष्यभर प्रेम करेन...! ❤️</p>
+        <p class="promise">मी तुझ्यावर नेहमी विश्वास ठेवेन...! 🤞</p>
+        <p class="promise">तुझ्या प्रत्येक आनंदात आणि दुःखात मी तुझ्यासोबत असेन...! 😊</p>
+        <p class="promise">तुझी स्वप्ने पूर्ण करण्यासाठी नेहमी तुझ्या सोबत राहीन...! ✨</p>
+        <p class="promise">कधीही तुला एकटं वाटू देणार नाही...! 🤗</p>
+        <p class="promise">मी कायम तुझा साथ देईन...! 💕</p>
+        <button class="button" onclick="nextPage(3)">Next ➡</button>
+    </div>
+
+    <!-- Page 3: Final Love Message -->
+    <div class="container" id="page3">
+        <h2 class="glow-text">💞 Forever Together 💞</h2>
+        <p class="promise">I Promise to Love You Forever! ❤️</p>
+        <p class="promise">Thank You for Being Mine! 💖</p>
+        <button class="button" onclick="nextPage(1)">🏠 Home</button>
+    </div>
+
+    <script>
+        function nextPage(pageNumber) {
+            document.querySelectorAll('.container').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById('page' + pageNumber).classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
