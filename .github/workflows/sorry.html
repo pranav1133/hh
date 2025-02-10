@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>माफ कर 😔 | I'm Sorry</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            display: none;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .active {
+            display: flex;
+        }
+        .heart {
+            font-size: 80px;
+            animation: heartbeat 1s infinite alternate;
+            color: red;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); color: red; }
+            100% { transform: scale(1.3); color: darkred; }
+        }
+        .glow-text {
+            font-size: 24px;
+            font-weight: bold;
+            animation: glow 1s infinite alternate;
+        }
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px red; }
+            100% { text-shadow: 0 0 20px white; }
+        }
+        .message {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background: red;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background: darkred;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page 1: Sad Heart Animation -->
+    <div class="container active" id="page1">
+        <div class="heart">💔</div>
+        <h1 class="glow-text">माफ कर 😔</h1>
+        <p class="message">मी खूप चुकी केलीय... पण मला खरंच पश्चात्ताप झालाय! </p>
+        <button class="button" onclick="nextPage(2)">Next ➡</button>
+    </div>
+
+    <!-- Page 2: Apology Messages in Marathi -->
+    <div class="container" id="page2">
+        <h2 class="glow-text"> i know drvelic ahe maza tri pn sorry </h2>
+        <p class="message">मी तुला दुखावले, त्यासाठी मनापासून माफ कर! 😞</p>
+        <p class="message">माझ्या वागण्याने तुला त्रास झाला, त्याचा मला खूप पश्चात्ताप आहे! 😔</p>
+        <p class="message">मी तुला दिलेल्या सर्व वेदनांसाठी मी माफी मागतो! </p>
+        <p class="message">माझ्या चुकीने तुझ्या डोळ्यात अश्रू आले, यासाठी मी आयुष्यभर स्वतःला माफ करू शकणार नाही...! </p>
+        <p class="message">पण मी तुला वचन देतो, यापुढे मी तुला कधीच त्रास देणार नाही! 💖</p>
+       
+        <button class="button" onclick="nextPage(3)">Next ➡</button>
+    </div>
+
+    <!-- Page 3: Final Sorry Message -->
+    <div class="container" id="page3">
+        <h2 class="glow-text"> Please माफ कर...! </h2>
+        <p class="message">मी तुला खरंच मनापासून प्रेम करतो! ❤️</p>
+        <p class="message"> ik माझ्या चुका सुधारण्याची मला गरज आहे sorry! 🥺</p>
+        <button class="button" onclick="nextPage(1)">🏠 Home</button>
+    </div>
+
+    <script>
+        function nextPage(pageNumber) {
+            document.querySelectorAll('.container').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById('page' + pageNumber).classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
