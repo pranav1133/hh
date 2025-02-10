@@ -1,0 +1,102 @@
+import tkinter as tk
+import time
+
+# Create main window
+root = tk.Tk()
+root.title("Happy Promise Day ❤️")
+root.geometry("600x600")
+root.configure(bg="black")
+
+# Pages container
+pages = []
+
+# Marathi Promise Messages
+messages = [
+    "मी तुला आयुष्यभर प्रेम करेन...! ❤️",
+    "मी तुझ्यावर नेहमी विश्वास ठेवेन...! 🤞",
+    "तुझ्या प्रत्येक आनंदात आणि दुःखात मी तुझ्यासोबत असेन...! 😊",
+    "तुझी स्वप्ने पूर्ण करण्यासाठी नेहमी तुझ्या सोबत राहीन...! ✨",
+    "कधीही तुला एकटं वाटू देणार नाही...! 🤗",
+    "मी कायम तुझा साथ देईन...! 💕",
+    "Happy Promise Day My Love ❤️"
+]
+
+# Function to create heart animation
+def draw_heart(canvas):
+    heart = canvas.create_text(300, 100, text="❤️", font=("Arial", 80), fill="red")
+    for _ in range(5):
+        canvas.itemconfig(heart, fill="pink")
+        root.update()
+        time.sleep(0.5)
+        canvas.itemconfig(heart, fill="red")
+        root.update()
+        time.sleep(0.5)
+
+# Function to fade in text
+def fade_in(widget):
+    for i in range(1, 11):
+        color = f"#FF0000{i*10}"
+        widget.config(fg=color)
+        root.update()
+        time.sleep(0.1)
+
+# Function to switch pages
+def show_page(page_num):
+    for page in pages:
+        page.pack_forget()
+    pages[page_num].pack()
+
+# Page 1: Welcome Screen
+page1 = tk.Frame(root, bg="black")
+canvas1 = tk.Canvas(page1, width=600, height=600, bg="black", highlightthickness=0)
+canvas1.pack()
+draw_heart(canvas1)
+
+welcome_label = tk.Label(page1, text="Happy Promise Day ❤️", font=("Arial", 24, "bold"), fg="white", bg="black")
+welcome_label.pack(pady=20)
+fade_in(welcome_label)
+
+next_button1 = tk.Button(page1, text="Next ➡", font=("Arial", 14), command=lambda: show_page(1), bg="red", fg="white")
+next_button1.pack(pady=20)
+
+pages.append(page1)
+
+# Page 2: Marathi Promise Messages
+page2 = tk.Frame(root, bg="black")
+
+message_label = tk.Label(page2, text="💖 Promise for You 💖", font=("Arial", 20, "bold"), fg="white", bg="black")
+message_label.pack(pady=20)
+
+y_position = 100
+for msg in messages:
+    label = tk.Label(page2, text=msg, font=("Arial", 16), fg="white", bg="black")
+    label.pack()
+    fade_in(label)
+    y_position += 40
+
+next_button2 = tk.Button(page2, text="Next ➡", font=("Arial", 14), command=lambda: show_page(2), bg="red", fg="white")
+next_button2.pack(pady=20)
+
+pages.append(page2)
+
+# Page 3: Final Love Page
+page3 = tk.Frame(root, bg="black")
+
+final_label = tk.Label(page3, text="💞 Forever Together 💞", font=("Arial", 22, "bold"), fg="white", bg="black")
+final_label.pack(pady=40)
+
+love_label = tk.Label(page3, text="I Promise to Love You Forever! ❤️", font=("Arial", 18), fg="pink", bg="black")
+love_label.pack()
+
+thank_you_label = tk.Label(page3, text="Thank You for Being Mine! 💖", font=("Arial", 16), fg="lightblue", bg="black")
+thank_you_label.pack(pady=20)
+
+exit_button = tk.Button(page3, text="Exit ❌", font=("Arial", 14), command=root.destroy, bg="red", fg="white")
+exit_button.pack(pady=20)
+
+pages.append(page3)
+
+# Show first page
+show_page(0)
+
+root.mainloop()
